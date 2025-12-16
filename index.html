@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactHub - Smart Contact Manager</title>
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- START HEADER SECTION -->
+    <header id="header" class="header position-sticky top-0 z-3">
+      <nav class="navbar p-3">
+        <div class="container-xl">
+          <div
+            class="d-flex align-items-center justify-content-between gap-2-half"
+          >
+            <div
+              class="logo d-flex align-items-center justify-content-center rounded-3-half shadow-2"
+            >
+              <i class="fa-solid fa-address-book text-white fs-5-half"></i>
+            </div>
+            <div>
+              <h1 class="fw-bold fs-4 m-0">
+                Contact<span class="text-master">Hub</span>
+              </h1>
+              <p class="fs-8 fw-medium m-0 text-gray d-none d-sm-inline-block">
+                Smart Contact Manager
+              </p>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between gap-2 gap-md-2-half"
+          >
+            <button
+              class="unstyled-button master-button hover-shadow-2 hover-translate-up-1 fs-7 fw-semibold"
+            >
+              <i class="fa-solid fa-plus fs-8 fw-semibold"></i>
+              <span class="d-none d-sm-inline-block">Add Contact</span>
+              <span class="d-inline-block d-sm-none">Add</span>
+            </button>
+            <button
+              class="unstyled-button nav-icon-button align-items-center justify-content-center rounded-3-half d-none d-sm-flex"
+            >
+              <i class="fa-solid fa-bell"></i>
+            </button>
+            <button
+              class="unstyled-button nav-icon-button d-flex align-items-center justify-content-center rounded-3-half d-none d-sm-flex"
+            >
+              <i class="fa-solid fa-gear"></i>
+            </button>
+            <div class="profile-img rounded-3-half overflow-hidden">
+              <img src="./img/avatar.jpg" alt="Profile Avatar" />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- END   HEADER SECTION -->
+    <!-- STRAT MAIN SECTION -->
+    <main>
+      <!-- START SUMMARY SECTION -->
+      <section id="summary" class="summary">
+        <div class="container-xl">
+          <div class="row g-3">
+            <div class="col-6 col-md-4">
+              <div
+                class="summary-card d-flex align-items-center gap-2-half gap-md-3 bg-white p-3-half rounded-4 shadow-3"
+              >
+                <div
+                  class="icon d-flex align-items-center justify-content-center rounded-3-half shadow-2"
+                >
+                  <i class="fa-solid fa-users text-white"></i>
+                </div>
+                <div class="info">
+                  <p class="m-0 text-gray fw-medium fs-8 text-uppercase">
+                    Total
+                  </p>
+                  <p class="m-0 fs-4 fw-bold">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div
+                class="summary-card d-flex align-items-center gap-2-half gap-md-3 bg-white p-3-half rounded-4 shadow-3"
+              >
+                <div
+                  class="icon d-flex align-items-center justify-content-center rounded-3-half shadow-2"
+                >
+                  <i class="fa-solid fa-star text-white"></i>
+                </div>
+                <div class="info">
+                  <p class="m-0 text-gray fw-medium fs-8 text-uppercase">
+                    Favorites
+                  </p>
+                  <p class="m-0 fs-4 fw-bold">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div
+                class="summary-card d-flex align-items-center gap-2-half gap-md-3 bg-white p-3-half rounded-4 shadow-3"
+              >
+                <div
+                  class="icon d-flex align-items-center justify-content-center rounded-3-half shadow-2"
+                >
+                  <i class="fa-solid fa-heart-pulse text-white"></i>
+                </div>
+                <div class="info">
+                  <p class="m-0 text-gray fw-medium fs-8 text-uppercase">
+                    Emergency
+                  </p>
+                  <p class="m-0 fs-4 fw-bold">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END   SUMMARY SECTION -->
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-12 col-xl-8">
+            <!-- START CONTACTS SECTION -->
+            <section id="contacts" class="contacts pb-4-half">
+              <div class="mb-4">
+                <div class="mb-3-half">
+                  <h2 class="fw-bold m-0 mb-1">All Contacts</h2>
+                  <p class="fs-6 text-gray m-0">
+                    Manage and organize your 1 contacts
+                  </p>
+                </div>
+                <div>
+                  <div
+                    class="search-input position-relative w-100 rounded-3-half"
+                  >
+                    <div
+                      class="position-absolute d-flex align-items-center h-100 ps-3 pe-none"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input
+                      id="searchInput"
+                      type="text"
+                      placeholder="Search by name, phone, or email..."
+                      class="w-100 fs-7 rounded-3-half"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div
+                    class="contact-card rounded-4 bg-white shadow-3 overflow-hidden"
+                  >
+                    <div class="px-3 pt-3 pb-2">
+                      <div
+                        class="contact-card-header d-flex align-items-center gap-2-half mb-3"
+                      >
+                        <div
+                          class="avatar position-relative rounded-3-half d-flex align-items-center justify-content-center"
+                        >
+                          <img
+                            src="./img/avatar.jpg"
+                            alt="Contact Avatar"
+                            class="w-100 h-100 d-inline-block rounded-3-half"
+                          />
+                          <div
+                            class="favourite-badge position-absolute rounded-circle d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-star fs-9 text-white"></i>
+                          </div>
+                          <div
+                            class="emergency-badge position-absolute rounded-circle d-flex align-items-center justify-content-center"
+                          >
+                            <i
+                              class="fa-solid fa-heart-pulse fs-9 text-white"
+                            ></i>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="name fw-semibold mb-1">Ahmed Anwer</div>
+                          <div class="phone d-flex align-items-center gap-2">
+                            <div
+                              class="icon d-inline-block blue-badge fs-8 d-flex align-items-center justify-content-center"
+                            >
+                              <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span class="text-gray fs-7">01122333444</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contact-card-body mb-2-half">
+                        <div class="email d-flex align-items-center gap-2 mb-2">
+                          <div
+                            class="violet-badge rounded-2 d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-envelope fs-8"></i>
+                          </div>
+                          <span class="fs-7 text-gray"
+                            >contact@ahmedanwer.com</span
+                          >
+                        </div>
+                        <div
+                          class="address d-flex align-items-center gap-2 mb-2"
+                        >
+                          <div
+                            class="green-badge rounded-2 d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-location-dot fs-8"></i>
+                          </div>
+                          <span class="fs-7 text-gray">Alexandria</span>
+                        </div>
+                        <div class="tags">
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 blue-badge"
+                          >
+                            School
+                          </div>
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 amber-badge"
+                          >
+                            <i class="fa-solid fa-star"></i>
+                            Favourite
+                          </div>
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 rose-badge"
+                          >
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            Emergency
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="contact-card-footer px-3 py-2">
+                      <div
+                        class="d-flex align-items-center justify-content-between py-2"
+                      >
+                        <div class="d-flex align-items-center gap-2">
+                          <a
+                            href="tel:01122333444"
+                            class="phone-button d-inline-block text-decoration-none rounded-2 d-flex align-items-center justify-content-center"
+                            title="Phone"
+                            ><i class="fa-solid fa-phone fs-7"></i
+                          ></a>
+                          <a
+                            href="mailto:contact@ahmedanwer.com"
+                            class="email-button d-inline-block text-decoration-none rounded-2 d-flex align-items-center justify-content-center"
+                            title="Email"
+                            ><i class="fa-solid fa-envelope fs-7"></i
+                          ></a>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                          <button
+                            class="favourite-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Favourite"
+                          >
+                            <i class="fa-regular fa-star fs-7"></i>
+                          </button>
+                          <button
+                            class="emergency-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Emergency"
+                          >
+                            <i class="fa-regular fa-heart fs-7"></i>
+                          </button>
+                          <button
+                            class="edit-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Edit"
+                          >
+                            <i class="fa-solid fa-pen fs-7"></i>
+                          </button>
+                          <button
+                            class="delete-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Delete"
+                          >
+                            <i class="fa-solid fa-trash fs-7"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div
+                    class="contact-card rounded-4 bg-white shadow-3 overflow-hidden"
+                  >
+                    <div class="px-3 pt-3 pb-2">
+                      <div
+                        class="contact-card-header d-flex align-items-center gap-2-half mb-3"
+                      >
+                        <div
+                          class="avatar position-relative rounded-3-half d-flex align-items-center justify-content-center"
+                        >
+                          <span class="text-uppercase fw-semibold text-white"
+                            >aa</span
+                          >
+                          <div
+                            class="favourite-badge position-absolute rounded-circle d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-star fs-9 text-white"></i>
+                          </div>
+                          <div
+                            class="emergency-badge position-absolute rounded-circle d-flex align-items-center justify-content-center"
+                          >
+                            <i
+                              class="fa-solid fa-heart-pulse fs-9 text-white"
+                            ></i>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="name fw-semibold mb-1">Ahmed Anwer</div>
+                          <div class="phone d-flex align-items-center gap-2">
+                            <div
+                              class="icon d-inline-block blue-badge fs-8 d-flex align-items-center justify-content-center"
+                            >
+                              <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span class="text-gray fs-7">01122333444</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contact-card-body mb-2-half">
+                        <div class="email d-flex align-items-center gap-2 mb-2">
+                          <div
+                            class="violet-badge rounded-2 d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-envelope fs-8"></i>
+                          </div>
+                          <span class="fs-7 text-gray"
+                            >contact@ahmedanwer.com</span
+                          >
+                        </div>
+                        <div
+                          class="address d-flex align-items-center gap-2 mb-2"
+                        >
+                          <div
+                            class="green-badge rounded-2 d-flex align-items-center justify-content-center"
+                          >
+                            <i class="fa-solid fa-location-dot fs-8"></i>
+                          </div>
+                          <span class="fs-7 text-gray">Alexandria</span>
+                        </div>
+                        <div class="tags">
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 blue-badge"
+                          >
+                            School
+                          </div>
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 amber-badge"
+                          >
+                            <i class="fa-solid fa-star"></i>
+                            Favourite
+                          </div>
+                          <div
+                            class="tag d-inline-block rounded-2 fs-8 fw-medium px-2 py-1 rose-badge"
+                          >
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            Emergency
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="contact-card-footer px-3 py-2">
+                      <div
+                        class="d-flex align-items-center justify-content-between py-2"
+                      >
+                        <div class="d-flex align-items-center gap-2">
+                          <a
+                            href="tel:01122333444"
+                            class="phone-button d-inline-block text-decoration-none rounded-2 d-flex align-items-center justify-content-center"
+                            title="Phone"
+                            ><i class="fa-solid fa-phone fs-7"></i
+                          ></a>
+                          <a
+                            href="mailto:contact@ahmedanwer.com"
+                            class="email-button d-inline-block text-decoration-none rounded-2 d-flex align-items-center justify-content-center"
+                            title="Email"
+                            ><i class="fa-solid fa-envelope fs-7"></i
+                          ></a>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                          <button
+                            class="favourite-button unstyled-button rounded-2 d-flex align-items-center justify-content-center active"
+                            title="Favourite"
+                          >
+                            <i class="fa-solid fa-star fs-7"></i>
+                          </button>
+                          <button
+                            class="emergency-button unstyled-button rounded-2 d-flex align-items-center justify-content-center active"
+                            title="Emergency"
+                          >
+                            <i class="fa-solid fa-heart-pulse fs-7"></i>
+                          </button>
+                          <button
+                            class="edit-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Edit"
+                          >
+                            <i class="fa-solid fa-pen fs-7"></i>
+                          </button>
+                          <button
+                            class="delete-button unstyled-button rounded-2 d-flex align-items-center justify-content-center"
+                            title="Delete"
+                          >
+                            <i class="fa-solid fa-trash fs-7"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- END   CONTACTS SECTION -->
+          </div>
+          <div class="col-12 col-xl-4">
+            <!-- START MENU SECTION -->
+            <section id="menu" class="menu position-sticky pb-4-half">
+              <div class="favourite-menu bg-white rounded-4 overflow-hidden shadow-3 mb-3">
+                <div
+                  class="menu-header d-flex align-items-center gap-2-half px-3-half py-3"
+                >
+                  <div
+                    class="menu-logo d-flex align-items-center justify-content-center shadow-2 rounded-2"
+                  >
+                    <i class="fa-solid fa-star text-white"></i>
+                  </div>
+                  <div>
+                    <h2 class="fs-6 fw-semibold m-0">Favorites</h2>
+                    <p class="text-gray fs-8 fw-normal m-0">
+                      Quick access to starred contacts
+                    </p>
+                  </div>
+                </div>
+                <div class="menu-body p-2-half d-flex flex-wrap gap-2">
+                  <div
+                    class="contact-item rounded-3-half p-2 d-flex align-items-center justify-content-between w-100"
+                  >
+                    <div class="d-flex align-items-center gap-2-half">
+                      <div
+                        class="avatar d-flex align-items-center justify-content-center rounded-2"
+                      >
+                        <span class="text-uppercase fw-semibold text-white"
+                          >aa</span
+                        >
+                      </div>
+                      <div>
+                        <div class="name fw-medium fs-7 m-0">Ahmed Anwer</div>
+                        <div class="phone fw-normal fs-8 text-gray m-0">
+                          01122333444
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      class="call-button d-flex align-items-center justify-content-center text-decoration-none rounded-2"
+                      href="tel:01122333444"
+                    >
+                      <i class="fa-solid fa-phone fs-8"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="emergency-menu bg-white rounded-4 overflow-hidden shadow-3">
+                <div
+                  class="menu-header d-flex align-items-center gap-2-half px-3-half py-3"
+                >
+                  <div
+                    class="menu-logo d-flex align-items-center justify-content-center shadow-2 rounded-2"
+                  >
+                    <i class="fa-solid fa-heart-pulse text-white"></i>
+                  </div>
+                  <div>
+                    <h2 class="fs-6 fw-semibold m-0">Emergency</h2>
+                    <p class="text-gray fs-8 fw-normal m-0">
+                      Important contacts for urgent calls
+                    </p>
+                  </div>
+                </div>
+                <div class="menu-body p-2-half d-flex flex-wrap gap-2">
+                  <div
+                    class="contact-item rounded-3-half p-2 d-flex align-items-center justify-content-between w-100"
+                  >
+                    <div class="d-flex align-items-center gap-2-half">
+                      <div
+                        class="avatar d-flex align-items-center justify-content-center rounded-2"
+                      >
+                        <span class="text-uppercase fw-semibold text-white"
+                          >aa</span
+                        >
+                      </div>
+                      <div>
+                        <div class="name fw-medium fs-7 m-0">Ahmed Anwer</div>
+                        <div class="phone fw-normal fs-8 text-gray m-0">
+                          01122333444
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      class="call-button d-flex align-items-center justify-content-center text-decoration-none rounded-2"
+                      href="tel:01122333444"
+                    >
+                      <i class="fa-solid fa-phone fs-8"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- END MENU SECTION -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- END   MAIN SECTION -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
