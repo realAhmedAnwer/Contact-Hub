@@ -104,6 +104,15 @@ body {
 .pb-4-half {
   padding-bottom: 2rem;
 }
+.z-4 {
+  z-index: 4 !important;
+}
+.z-5 {
+  z-index: 5 !important;
+}
+.z-6 {
+  z-index: 6 !important;
+}
 /* END   READY-TO-GO CLASSES */
 /* START HEADER SECTION */
 .header {
@@ -172,12 +181,8 @@ body {
 }
 /* END   SUMMARY SECTION */
 /* START CONTACTS SECTION */
-.contacts {
-}
 .contacts .search-input {
   color: #99a1af;
-}
-.contacts .search-input:focus {
 }
 .contacts .search-input > div {
   color: #99a1af;
@@ -304,6 +309,26 @@ body {
   color: #ec003f;
   background-color: #fff1f2;
 }
+.family-group {
+  color: #155dfc;
+  background-color: #dbeafe;
+}
+.friends-group {
+  color: #009966;
+  background-color: #d0fae5;
+}
+.work-group {
+  color: #7f22fe;
+  background-color: #ede9fe;
+}
+.school-group {
+  color: #ea580c;
+  background-color: #ffedd5;
+}
+.other-group {
+  color: #364153;
+  background-color: #f6f3f4;
+}
 .blue-badge {
   color: #155dfc;
   background-color: #dbeafe;
@@ -389,6 +414,59 @@ body {
   background-color: #ff2056;
 }
 /* END   MENU SECTION */
+/* START CONTACT FORM */
+.modal {
+  --bs-modal-border-radius: 1rem;
+  --bs-modal-inner-border-radius: 1rem;
+}
+.modal .required-sign {
+  color: #ff2056;
+}
+.modal .modal-overlay {
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  background-color: #10182899;
+}
+.modal .modal-dialog {
+  --bs-modal-width: 32rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal .modal-dialog::-webkit-scrollbar {
+  display: none;
+}
+.modal .modal-dialog .modal-content {
+  --bs-modal-border-radius: 1rem;
+  --bs-modal-border-width: 0;
+}
+.modal .modal-dialog .modal-content textarea {
+  resize: none;
+}
+.modal .contact-image {
+  width: 6rem;
+  height: 6rem;
+  background-image: linear-gradient(to bottom right, #51a2ff, #155dfc);
+}
+.modal .change-photo {
+  color: #364153;
+  background-color: #f6f3f4;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal .change-photo:hover {
+  background-color: #ebe6e7;
+}
+.modal .fa-star {
+  color: #ffb900;
+}
+.modal .fa-heart-pulse {
+  color: #ff2056;
+}
+/* END   CONTACT FORM */
 /* START MEDIA QUERY */
 @media (min-width: 768px) {
   :root {

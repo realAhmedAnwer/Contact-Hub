@@ -35,11 +35,13 @@
             class="d-flex align-items-center justify-content-between gap-2 gap-md-2-half"
           >
             <button
+              id="addContactButton"
               class="unstyled-button master-button hover-shadow-2 hover-translate-up-1 fs-7 fw-semibold"
             >
               <i class="fa-solid fa-plus fs-8 fw-semibold"></i>
-              <span class="d-none d-sm-inline-block">Add Contact</span>
-              <span class="d-inline-block d-sm-none">Add</span>
+              <span
+                >Add<span class="d-none d-sm-inline-block"> Contact</span></span
+              >
             </button>
             <button
               class="unstyled-button nav-icon-button align-items-center justify-content-center rounded-3-half d-none d-sm-flex"
@@ -150,7 +152,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row g-3">
+              <div id="contactCardsContainer" class="row g-3">
                 <div class="col-12 col-md-6">
                   <div
                     class="contact-card rounded-4 bg-white shadow-3 overflow-hidden"
@@ -418,7 +420,9 @@
           <div class="col-12 col-xl-4">
             <!-- START MENU SECTION -->
             <section id="menu" class="menu position-sticky pb-4-half">
-              <div class="favourite-menu bg-white rounded-4 overflow-hidden shadow-3 mb-3">
+              <div
+                class="favourite-menu bg-white rounded-4 overflow-hidden shadow-3 mb-3"
+              >
                 <div
                   class="menu-header d-flex align-items-center gap-2-half px-3-half py-3"
                 >
@@ -435,34 +439,38 @@
                   </div>
                 </div>
                 <div class="menu-body p-2-half d-flex flex-wrap gap-2">
-                  <div
-                    class="contact-item rounded-3-half p-2 d-flex align-items-center justify-content-between w-100"
-                  >
-                    <div class="d-flex align-items-center gap-2-half">
-                      <div
-                        class="avatar d-flex align-items-center justify-content-center rounded-2"
-                      >
-                        <span class="text-uppercase fw-semibold text-white"
-                          >aa</span
+                  <div id="favouriteContactsContainer">
+                    <div
+                      class="contact-item rounded-3-half p-2 d-flex align-items-center justify-content-between w-100"
+                    >
+                      <div class="d-flex align-items-center gap-2-half">
+                        <div
+                          class="avatar d-flex align-items-center justify-content-center rounded-2"
                         >
-                      </div>
-                      <div>
-                        <div class="name fw-medium fs-7 m-0">Ahmed Anwer</div>
-                        <div class="phone fw-normal fs-8 text-gray m-0">
-                          01122333444
+                          <span class="text-uppercase fw-semibold text-white"
+                            >aa</span
+                          >
+                        </div>
+                        <div>
+                          <div class="name fw-medium fs-7 m-0">Ahmed Anwer</div>
+                          <div class="phone fw-normal fs-8 text-gray m-0">
+                            01122333444
+                          </div>
                         </div>
                       </div>
+                      <a
+                        class="call-button d-flex align-items-center justify-content-center text-decoration-none rounded-2"
+                        href="tel:01122333444"
+                      >
+                        <i class="fa-solid fa-phone fs-8"></i>
+                      </a>
                     </div>
-                    <a
-                      class="call-button d-flex align-items-center justify-content-center text-decoration-none rounded-2"
-                      href="tel:01122333444"
-                    >
-                      <i class="fa-solid fa-phone fs-8"></i>
-                    </a>
                   </div>
                 </div>
               </div>
-              <div class="emergency-menu bg-white rounded-4 overflow-hidden shadow-3">
+              <div
+                class="emergency-menu bg-white rounded-4 overflow-hidden shadow-3"
+              >
                 <div
                   class="menu-header d-flex align-items-center gap-2-half px-3-half py-3"
                 >
@@ -513,7 +521,182 @@
       </div>
     </main>
     <!-- END   MAIN SECTION -->
-
+    <!-- START CONTACT FORM -->
+    <div
+      id="contactModal"
+      class="modal vh-100 d-none align-items-center justify-content-center"
+      tabindex="-1"
+    >
+      <div class="modal-overlay z-4"></div>
+      <div class="modal-dialog z-5 w-100 m-0 rounded-4">
+        <div class="modal-content">
+          <div class="modal-header position-sticky top-0 z-6 bg-white">
+            <h5 class="modal-title fw-bold">Add New Contact</h5>
+            <button
+              id="closeButton"
+              type="button"
+              class="btn-close fs-6"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="d-flex flex-column align-items-center gap-3">
+                <div
+                  class="contact-image d-flex align-items-center justify-content-center rounded-circle"
+                >
+                  <i class="fa-solid fa-user fs-2 text-white"></i>
+                </div>
+                <div>
+                  <label
+                    type="button"
+                    id="changeAvatarButton"
+                    class="change-photo unstyled-button rounded-2 py-2 px-3"
+                  >
+                    <i class="fa-solid fa-camera text-gray"></i>
+                    Change Photo
+                    <input
+                      type="file"
+                      id="pickAvatar"
+                      accept="image/*"
+                      class="d-none"
+                    />
+                  </label>
+                  <input type="hidden" id="avatarPathInput" value />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="nameInput" class="form-label"
+                  >Full Name <span class="required-sign">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nameInput"
+                  placeholder="Enter full name"
+                />
+                <p
+                  id="nameInputError"
+                  class="d-none text-danger fs-8 mb-0 mt-1 ms-1"
+                >
+                  Name should contain only letters and spaces (2-50 characters)
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="phoneInput" class="form-label"
+                  >Phone Number <span class="required-sign">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phoneInput"
+                  placeholder="e.g., 01012345678"
+                />
+                <p
+                  id="phoneInputError"
+                  class="d-none text-danger fs-8 mb-0 mt-1 ms-1"
+                >
+                  Please enter a valid Egyptian phone number
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  placeholder="name@example.com"
+                />
+                <p
+                  id="emailInputError"
+                  class="d-none text-danger fs-8 mb-0 mt-1 ms-1"
+                >
+                  Please enter a valid email address
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="addressInput" class="form-label">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="addressInput"
+                  placeholder="Enter address"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="groupInput" class="form-label">Group</label>
+                <select
+                  id="groupInput"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option value="" selected>Select a group</option>
+                  <option value="family">Family</option>
+                  <option value="friends">Friends</option>
+                  <option value="work">Work</option>
+                  <option value="school">School</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="notesInput" class="form-label">Notes</label>
+                <textarea
+                  class="form-control"
+                  placeholder="Add notes about this contact"
+                  id="notesInput"
+                ></textarea>
+              </div>
+              <div class="mb-3 d-flex gap-3">
+                <div>
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="isFavouriteInput"
+                  />
+                  <label class="form-check-label" for="isFavouriteInput">
+                    <i class="fa-solid fa-star"></i>
+                    Favourite
+                  </label>
+                </div>
+                <div>
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                    id="isEmergencyInput"
+                  />
+                  <label class="form-check-label" for="isEmergencyInput">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    Emergency
+                  </label>
+                </div>
+              </div>
+              <input type="hidden" id="contactIdInput" value="" />
+              <div class="d-flex gap-3">
+                <button
+                  id="cancelButton"
+                  type="button"
+                  class="btn btn-secondary w-100 flex-fill"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  id="saveContactButton"
+                  class="btn btn-primary w-100 flex-fill"
+                >
+                  <i class="fa-solid fa-check"></i>
+                  Save Contact
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END   CONTACT FORM -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/index.js"></script>
